@@ -1,7 +1,7 @@
 import http from 'http';
 import express, { Express } from 'express';
 import morgan from 'morgan';
-import routes from './routes/animes';
+import animesRoutes from './routes/animes';
 
 const router: Express = express();
 
@@ -19,10 +19,10 @@ router.use((req, res, next) => {
   next();
 });
 
-router.use('/', routes);
+router.use('/animes', animesRoutes);
 
 router.use((req, res, next) => {
-  const error = new Error('not found');
+  const error = new Error('Not found');
   return res.status(404).json({
     message: error.message
   });
