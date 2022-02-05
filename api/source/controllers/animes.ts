@@ -10,10 +10,16 @@ const fetchAnimes = async (req: Request, res: Response, next: NextFunction) => {
   // get the anime
   let result: AxiosResponse = await axios.get(`https://kitsu.io/api/edge/anime?filter[text]=${title}`);
   let animes: Animes[] = [];
+  if (result.status === 304) {
+    return res.status(304)
+  }
   result.data.data.map((data: any) => {
-    animes.push(data.attributes)
+    let animesTemp = {
+      id : data.id,
+      attributes: data.attributes
+    }
+    animes.push(animesTemp)
   })
-  console.log(animes)
   return res.status(200).json({
     message: animes
   });
@@ -26,7 +32,6 @@ const getAnime = async (req: Request, res: Response, next: NextFunction) => {
   // get the anime
   let result: AxiosResponse = await axios.get(`https://kitsu.io/api/edge/anime/${id}`);
   let animes: Animes = result.data.data.attributes;
-  console.log(animes.titles)
   return res.status(200).json({
     message: animes
   });

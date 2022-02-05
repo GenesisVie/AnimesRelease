@@ -1,34 +1,37 @@
 export interface Animes {
-  createdAt: Date;
-  updatedAt: Date;
-  slug: string;
-  synopsis: string;
-  description: string;
-  coverImageTopOffset: number;
-  titles: Titles;
-  canonicalTitle: string;
-  abbreviatedTitles: string[];
-  averageRating: string;
-  userCount: number;
-  favoritesCount: number;
-  startDate: string;
-  endDate: string;
-  nextRelease?: any;
-  popularityRank: number;
-  ratingRank: number;
-  ageRating: string;
-  ageRatingGuide: string;
-  subtype: string;
-  status: string;
-  tba: string;
-  posterImage: PosterImage;
-  coverImage: CoverImage;
-  episodeCount: number;
-  episodeLength: number;
-  totalLength: number;
-  youtubeVideoId: string;
-  showType: string;
-  nsfw: boolean;
+  id: string;
+  attributes: {
+    createdAt: Date;
+    updatedAt: Date;
+    slug: string;
+    synopsis: string;
+    description: string;
+    coverImageTopOffset: number;
+    titles: Titles;
+    canonicalTitle: string;
+    abbreviatedTitles: string[];
+    averageRating: string;
+    userCount: number;
+    favoritesCount: number;
+    startDate: string;
+    endDate: string;
+    nextRelease?: any;
+    popularityRank: number;
+    ratingRank: number;
+    ageRating: string;
+    ageRatingGuide: string;
+    subtype: string;
+    status: string;
+    tba: string;
+    posterImage: PosterImage;
+    coverImage: CoverImage;
+    episodeCount: number;
+    episodeLength: number;
+    totalLength: number;
+    youtubeVideoId: string;
+    showType: string;
+    nsfw: boolean;
+  }
 }
 
 export interface Titles {
